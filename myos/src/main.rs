@@ -6,7 +6,7 @@
 mod console;
 mod lang_items;
 mod sbi;
-
+use crate::sbi::sleep;
 use core::arch::global_asm;
 global_asm!(include_str!("entry.asm"));
 
@@ -14,6 +14,7 @@ global_asm!(include_str!("entry.asm"));
 pub fn rust_main() -> ! {
     clear_bss();
     println!("hello world!"); 
+    sleep(0,5);
     panic!("shut down machine");
 }
 
